@@ -1,0 +1,26 @@
+# Dependencies and generated site
+node_modules/
+dist/
+.vite/
+*.tsbuildinfo
+
+# Tests and local previews
+coverage/
+playwright-report/
+test-results/
+.pages-check/
+
+# Local design reference; screenshots in docs/ are tracked
+.design-reference/
+
+# Local configuration and logs
+.env
+.env.*
+!.env.example
+*.log
+
+# Editor and operating system files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

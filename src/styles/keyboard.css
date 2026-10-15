@@ -1,0 +1,179 @@
+.keyboard-section {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.keyboard-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px;
+  border-radius: 13px;
+  background: var(--keypad);
+}
+
+.keyboard-tabs {
+  min-width: 0;
+  display: flex;
+  flex: 1;
+  gap: 3px;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+.keyboard-tabs button {
+  min-width: 0;
+  min-height: 32px;
+  flex: 1;
+  padding: 5px 2px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--muted);
+  font: 500 12px/1.2 var(--mono);
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.keyboard-tabs button[aria-selected='true'] {
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 3%);
+}
+
+.keyboard-collapse {
+  width: 31px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  padding: 0;
+  border: 0;
+  border-radius: 9px;
+  background: var(--surface-alt);
+  color: var(--muted);
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+.scientific-drawer {
+  min-width: 0;
+  padding: 6px;
+  border-radius: 13px;
+  background: var(--keypad);
+}
+
+.scientific-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.alphabet-grid { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+.alphabet-grid .scientific-key { font-size: 20px; }
+.alphabet-grid i { font-family: Georgia, serif; font-weight: 400; }
+
+.scientific-key,
+.numeric-key {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  color: var(--text);
+  background: var(--surface);
+  font-family: var(--mono);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 160ms ease, transform 160ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.scientific-key {
+  min-height: 39px;
+  padding: 7px 2px;
+  border-radius: 9px;
+  font-size: 15px;
+  line-height: 1.2;
+}
+
+.scientific-key sup,
+.scientific-key sub {
+  position: relative;
+  font-size: 10px;
+  line-height: 1;
+}
+
+.scientific-key sup { top: -4px; }
+.scientific-key sub { top: 4px; }
+
+.numeric-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.numeric-key {
+  min-height: 59px;
+  padding: 10px 4px;
+  border-radius: 14px;
+  font-size: 27px;
+  line-height: 1.2;
+}
+
+.numeric-key.utility-key {
+  background: var(--keypad);
+  font-size: 18px;
+}
+
+.numeric-key.clear-key { color: var(--danger); }
+
+.numeric-key.equals-key {
+  background: var(--button);
+  color: var(--on-button);
+  font-size: 29px;
+}
+
+.numeric-key.operator-key {
+  background: var(--operator);
+  color: var(--text);
+  font-size: 29px;
+}
+
+.numeric-key.equals-key {
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 9%);
+}
+
+.scientific-key:hover,
+.numeric-key:hover,
+.keyboard-collapse:hover {
+  background: var(--surface-alt);
+}
+
+.numeric-key.equals-key:hover { background: var(--button-hover); }
+.numeric-key.operator-key:hover { background: var(--border); }
+
+.scientific-key:active,
+.numeric-key:active,
+.keyboard-collapse:active { transform: scale(.96); }
+
+.keyboard-section button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (max-width: 359px) {
+  .keyboard-section { gap: 8px; }
+  .keyboard-tabs button { font-size: 11px; }
+  .scientific-grid { gap: 5px; }
+  .scientific-key { min-height: 36px; font-size: 13px; }
+  .scientific-key sup, .scientific-key sub { font-size: 9px; }
+  .numeric-grid { gap: 7px; }
+  .numeric-key { min-height: 53px; font-size: 25px; border-radius: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .keyboard-section button { transition: none; }
+}
